@@ -128,7 +128,18 @@ int main()
 			
 		}
 	}
-	
+	//Ahora, hallaremos el valor maximo en X
+	double mayor = 0.0;
+	l = 0;
+	for(j = 0; j < 8; j++)
+	{
+		if(valoresX[j] >= mayor)
+		{
+			mayor = valoresX[j];
+			l = j;	
+		}
+	}
+	cout << "El angulo que corresponde a la mayor distancia alcanzada es: " << angulo[l] << ". La distancia es de: " << valoresX[l] << endl;
 	return 0;
 }
 
