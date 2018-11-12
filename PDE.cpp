@@ -16,14 +16,14 @@ int N = int(lado/h);
 int main()
 {
 	int i,j,k,l,m,n,contador;
-	double deltaT = 0.5*pow(h,2)/dif;
+	double deltaT = 1000*pow(h,2)/dif;
 	double ecuacion;
 	double r = deltaT*dif/pow(h,2);
 	double matrizFuturo[N][N];
 	double matrizPresente[N][N];
-	double condicion[N][N];
 	ofstream archivo_salida("datosFronteraFija.dat");
 	//Condiciones iniciales: Suponiendo la placa a 10 grados y la barra a 100 grados
+	//Condicion de extremos fijos
 	for(i = 0; i < N; i++)
 	{
 		matrizFuturo[N-1][i] = tempFrontera;
@@ -48,8 +48,55 @@ int main()
 			cout << i*h << " " << j*h << " " << matrizPresente[i][j] << endl;
 		}	
 	}
-	//Haremos la siguiente condicion manualmente
-	
+	//Haremos la siguiente condicion futuro
+	double suma = 0.0;
+	contador = 0;
+	bool condicion = false;
+	for(int t = 0; t < 101; t++)
+	{
+		suma = 0.0;
+		for(m = 1; m < N-1; m++)
+		{
+			for(n = 1; n < N-1; n++)
+			{
+				matrizFuturo[m][n] = matrizPresente[m][n] + r*(matrizPresente[m+1][n] + matrizPresente[m][n+1] - 4.0*matrizPresente[m][n] + matrizPresente[m-1][n] + matrizPresente[m][n-1]);
+			}
+		}
+		for(i = 0; i < N; i++)
+		{
+			for(j = 0; j < N; j++)
+			{
+				if(abs(matrizFuturo[i][j] - matrizPresente[i][j]) <= 0.1)
+				{
+					suma += 1.0;
+				}		
+			}		
+		}
+		contador += 1;
+		if(contador == 20)
+		{
+			for(k = 0; k < N; k ++)
+			{
+				for(l = 0; l < N; l++)
+				{
+					archivo_salida << k*h << " " << l*h << " " << matrizPresente[k][l] << endl;
+				}
+			}
+			contador = 0;
+		}
+		for(m = 0; m < N; m++)
+		{
+			for(n = 0; n < N; n++)
+			{
+				matrizPresente[m][n] = matrizFuturo[m][n];			
+			}		
+		}
+		if(suma == N*N)
+		{
+			condicion = true;
+		}
+		
+	}
 	
 	
 	
