@@ -19,29 +19,40 @@ int main()
 	double deltaT = 0.5*pow(h,2)/dif;
 	double ecuacion;
 	double r = deltaT*dif/pow(h,2);
-	double arregloFuturoX[N];
-	double arregloPresenteX[N];
-	double arregloFuturoY[N];
-	double arregloPresenteY[N];
+	double matrizFuturo[N][N];
+	double matrizPresente[N][N];
+	double condicion[N][N];
+	ofstream archivo_salida("datosFronteraFija.dat");
 	//Condiciones iniciales: Suponiendo la placa a 10 grados y la barra a 100 grados
-
+	for(i = 0; i < N; i++)
+	{
+		matrizFuturo[N-1][i] = tempFrontera;
+		matrizFuturo[i][N-1] = tempFrontera;
+		matrizFuturo[0][i] = tempFrontera;
+		matrizFuturo[i][0] = tempFrontera;
+	}
+	
 	for(i = 0; i < N; i++)
 	{
 		for(j = 0; j < N; j++)
 		{
-			ecuacion = pow(i*h - lado/2.0,2) + pow(j*h -lado/2.0,2)
-			if(ecuacion <= pow(lado/2.0,2))
+			ecuacion = pow(i*h - lado/2.0,2) + pow(j*h -lado/2.0,2);
+			if(ecuacion <= pow(radio,2) )
 			{
-				arregloPresenteX[i] = tempVarilla;
-				arregloPresenteY[j] = tempVarilla;
+				matrizPresente[i][j] = tempVarilla;
 			}	
 			else
 			{
-				arregloPresenteX[i] = tempFrontera;
-				arregloPresenteY[j] = tempFrontera;
+				matrizPresente[i][j] = tempFrontera;
 			}
+			cout << i*h << " " << j*h << " " << matrizPresente[i][j] << endl;
 		}	
 	}
+	//Haremos la siguiente condicion manualmente
+	
+	
+	
+	
 
 	
 	
