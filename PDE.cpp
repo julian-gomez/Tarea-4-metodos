@@ -16,7 +16,7 @@ int N = int(lado/h);
 int main()
 {
 	int i,j,k,l,m,n,contador;
-	double deltaT = 1000*pow(h,2)/dif;
+	double deltaT = 0.0005*pow(h,2)/dif;
 	double ecuacion;
 	double r = deltaT*dif/pow(h,2);
 	double matrizFuturo[N][N];
@@ -45,14 +45,14 @@ int main()
 			{
 				matrizPresente[i][j] = tempFrontera;
 			}
-			cout << i*h << " " << j*h << " " << matrizPresente[i][j] << endl;
+			archivo_salida << i*h << " " << j*h << " " << matrizPresente[i][j] << endl;
 		}	
 	}
 	//Haremos la siguiente condicion futuro
 	double suma = 0.0;
 	contador = 0;
 	bool condicion = false;
-	for(int t = 0; t < 101; t++)
+	while(condicion == false)
 	{
 		suma = 0.0;
 		for(m = 1; m < N-1; m++)
@@ -60,20 +60,25 @@ int main()
 			for(n = 1; n < N-1; n++)
 			{
 				matrizFuturo[m][n] = matrizPresente[m][n] + r*(matrizPresente[m+1][n] + matrizPresente[m][n+1] - 4.0*matrizPresente[m][n] + matrizPresente[m-1][n] + matrizPresente[m][n-1]);
+				ecuacion = pow(m*h - lado/2.0,2) + pow(n*h -lado/2.0,2);
+			if(ecuacion <= pow(radio,2) )
+			{
+				matrizFuturo[m][n] = tempVarilla;
+			}	
 			}
 		}
 		for(i = 0; i < N; i++)
 		{
 			for(j = 0; j < N; j++)
 			{
-				if(abs(matrizFuturo[i][j] - matrizPresente[i][j]) <= 0.1)
+				if(abs(matrizFuturo[i][j] - matrizPresente[i][j]) <= 0.01)
 				{
 					suma += 1.0;
 				}		
 			}		
 		}
 		contador += 1;
-		if(contador == 20)
+		if(contador == 200)
 		{
 			for(k = 0; k < N; k ++)
 			{
@@ -97,12 +102,6 @@ int main()
 		}
 		
 	}
-	
-	
-	
-
-	
-	
 	return 0;
 }
 
