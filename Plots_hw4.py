@@ -35,7 +35,6 @@ corteM2T = temperatura[8*2500:9*2500]
 matriz1T = np.zeros((50,50))
 for i in range(50):
 	matriz1T[i,:] = corte1T[i*50:(i+1)*50]
-print matriz1T
 #Grafica 3D. Tomado de https://matplotlib.org/mpl_toolkits/mplot3d/tutorial.html
 
 #Grafica condicion inicial
@@ -104,9 +103,24 @@ plt.close()
 
 
 #Ahora se consideran condiciones de frontera abiertas
+datosParcialLibres = np.genfromtxt("datosExtremosLibres.dat", delimiter = " ", usecols = (0,1,2))
+temperaturaLibre = datosParcialLibres[:,2]
+longitudLibre = len(temperaturaLibre)
+corteFTL = temperaturaLibre[(longitudLibre-2500):longitudLibre]
+matrizFTL = np.zeros((50,50))
+for i in range(50):
+	matrizFTL[i,:] = corteFTL[i*50:(i+1)*50]
 
-
-
+fig = plt.figure()
+ax = fig.gca(projection='3d')
+Z = matrizFTL
+surf = ax.plot_surface(X, Y, Z, cmap=cm.coolwarm, linewidth=0, antialiased=False)
+ax.zaxis.set_major_locator(LinearLocator(10))
+ax.zaxis.set_major_formatter(FormatStrFormatter('%.02f'))
+fig.colorbar(surf, shrink=0.5, aspect=5)
+ax.set_zlabel('Temperatura [K]')
+plt.show()
+plt.close()
 
 
 
