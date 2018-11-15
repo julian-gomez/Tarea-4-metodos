@@ -122,7 +122,25 @@ ax.set_zlabel('Temperatura [K]')
 plt.show()
 plt.close()
 
+#Ahora se consideran condiciones de frontera periodicas
+datosParcialPeriodica = np.genfromtxt("datosPeriodicas.dat", delimiter = " ", usecols = (0,1,2))
+temperaturaPeriodica = datosParcialPeriodica[:,2]
+longitudPeriodica = len(temperaturaPeriodica)
+corteFTP = temperaturaPeriodica[(longitudPeriodica-2500):longitudPeriodica]
+matrizFTP = np.zeros((50,50))
+for i in range(50):
+	matrizFTP[i,:] = corteFTP[i*50:(i+1)*50]
 
+fig = plt.figure()
+ax = fig.gca(projection='3d')
+Z = matrizFTP
+surf = ax.plot_surface(X, Y, Z, cmap=cm.coolwarm, linewidth=0, antialiased=False)
+ax.zaxis.set_major_locator(LinearLocator(10))
+ax.zaxis.set_major_formatter(FormatStrFormatter('%.02f'))
+fig.colorbar(surf, shrink=0.5, aspect=5)
+ax.set_zlabel('Temperatura [K]')
+plt.show()
+plt.close()
 
 
 
