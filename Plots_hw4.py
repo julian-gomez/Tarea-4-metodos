@@ -30,7 +30,7 @@ longitud = len(temperatura)
 corte1T = temperatura[0:2500]
 corteFT = temperatura[(longitud-2500):longitud]
 corteM1T = temperatura[5*2500:6*2500]
-corteM2T = temperatura[8*2500:9*2500]
+corteM2T = temperatura[12*2500:13*2500]
 
 matriz1T = np.zeros((50,50))
 for i in range(50):
