@@ -72,14 +72,14 @@ int main()
 		{
 			for(j = 0; j < N; j++)
 			{
-				if(abs(matrizFuturo[i][j] - matrizPresente[i][j]) <= 0.0001)
+				if(abs(matrizFuturo[i][j] - matrizPresente[i][j]) <= 0.00001)
 				{
 					suma += 1.0;
 				}		
 			}		
 		}
 		contador += 1;
-		if(contador == 200)
+		if(contador == 10000)
 		{
 			for(k = 0; k < N; k ++)
 			{
@@ -102,6 +102,14 @@ int main()
 			condicion = true;
 		}
 		
+	}
+	//Imprimimos el resultado final
+	for(m = 0; m < N; m++)
+	{
+		for(n = 0; n < N; n++)
+		{
+			archivo_salida << m*h << " " << n*h << " " << matrizPresente[m][n] << endl;			
+		}		
 	}
 	//Ahora consideramos extremos libres
 	//Condicion Inicial
@@ -150,14 +158,14 @@ int main()
 		{
 			for(j = 0; j < N; j++)
 			{
-				if(abs(matrizFuturo[i][j] - matrizPresente[i][j]) <= 0.0001)
+				if(abs(matrizFuturo[i][j] - matrizPresente[i][j]) <= 0.00001)
 				{
 					suma += 1.0;
 				}		
 			}		
 		}
 		contador += 1;
-		if(contador == 200)
+		if(contador == 10000)
 		{
 			for(k = 0; k < N; k ++)
 			{
@@ -181,6 +189,15 @@ int main()
 		}
 		
 	}
+	//Imprimimos el resultado final
+	for(m = 0; m < N; m++)
+	{
+		for(n = 0; n < N; n++)
+		{
+			archivo_salida2 << m*h << " " << n*h << " " << matrizPresente[m][n] << endl;			
+		}		
+	}
+		
 	return 0;
 }
 
