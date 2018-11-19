@@ -38,7 +38,7 @@ corteM2T = temperatura[29*2500:30*2500]
 #Realizamos un promedio de las temperaturas
 temperaturaPromedioFijo = np.zeros((2500))
 for i in range(2500):
-	temperaturaPromedioFijo[i] = sum(temperatura[i:longitud:2500])
+	temperaturaPromedioFijo[i] = temperatura[i:longitud:2500].mean()
 matriz1T = np.zeros((50,50))
 for i in range(50):
 	matriz1T[i,:] = corte1T[i*50:(i+1)*50]
@@ -133,7 +133,7 @@ corteM1TL = temperaturaLibre[50*2500:51*2500]
 corteM2TL = temperaturaLibre[180*2500:181*2500]
 temperaturaPromedioLibres = np.zeros((2500))
 for i in range(2500):
-	temperaturaPromedioLibres[i] = sum(temperaturaLibre[i:longitudLibre:2500])
+	temperaturaPromedioLibres[i] = temperaturaLibre[i:longitudLibre:2500].mean()
 matrizFTL = np.zeros((50,50))
 matrizM1TL = np.zeros((50,50))
 matrizM2TL = np.zeros((50,50))
@@ -203,7 +203,7 @@ corteM1TP = temperaturaPeriodica[50*2500:51*2500]
 corteM2TP = temperaturaPeriodica[180*2500:181*2500]
 temperaturaPromedioPer = np.zeros((2500))
 for i in range(2500):
-	temperaturaPromedioPer[i] = sum(temperaturaPeriodica[i:longitudPeriodica:2500])
+	temperaturaPromedioPer[i] = temperaturaPeriodica[i:longitudPeriodica:2500].mean()
 matrizFTP = np.zeros((50,50))
 matrizM1TP = np.zeros((50,50))
 matrizM2TP = np.zeros((50,50))
