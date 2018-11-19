@@ -1,8 +1,8 @@
 resultados_hw4.pdf:PlotsAngulos.pdf Plots45.pdf CondicionesIniciales.pdf FijoFinal.pdf FijoIntermedio1.pdf FijoIntermedio2.pdf PromedioFijo.pdf LibreFinal.pdf LibreIntermedio1.pdf LibreIntermedio2.pdf LibrePromedio.pdf PeriodicaFinal.pdf PeriodicaIntermedia1.pdf PeriodicaIntermedia2.pdf PeriodicaPromedio.pdf Resultados_hw4.tex
 	pdflatex Resultados_hw4.tex
-Plots45.pdf:datosProyectil.txt Plots_hw4.py
+Plots45.pdf:datosProyectil.txt Plots_hw4.py CondicionesIniciales.pdf FijoFinal.pdf FijoIntermedio1.pdf FijoIntermedio2.pdf PromedioFijo.pdf LibreFinal.pdf LibreIntermedio1.pdf LibreIntermedio2.pdf LibrePromedio.pdf PeriodicaFinal.pdf PeriodicaIntermedia1.pdf PeriodicaIntermedia2.pdf PeriodicaPromedio.pdf 
 	python Plots_hw4.py
-PlotsAngulos.pdf:datosProyectil.txt Plots_hw4.py
+PlotsAngulos.pdf:datosProyectil.txt Plots_hw4.py CondicionesIniciales.pdf FijoFinal.pdf FijoIntermedio1.pdf FijoIntermedio2.pdf PromedioFijo.pdf LibreFinal.pdf LibreIntermedio1.pdf LibreIntermedio2.pdf LibrePromedio.pdf PeriodicaFinal.pdf PeriodicaIntermedia1.pdf PeriodicaIntermedia2.pdf PeriodicaPromedio.pdf
 	python Plots_hw4.py
 CondicionesIniciales.pdf:datosFronteraFija.dat Plots_hw4.py
 	python Plots_hw4.py
