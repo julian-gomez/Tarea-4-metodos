@@ -20,8 +20,6 @@ double func_prime1X(double t, double x_1, double x_2,double y_2);
 double func_prime2X(double t, double x_1, double x_2,double y_2);
 double func_prime1Y(double t, double y_1, double y_2,double x_2);
 double func_prime2Y(double t, double y_1, double y_2,double x_2);
-string nombres [] = {"datos10.txt", "datos20.txt", "datos30.txt", "datos40.txt", "datos50.txt", "datos60.txt", "datos70.txt", "datos45.txt"};
-
 int main()
 {
 	
@@ -37,9 +35,9 @@ int main()
 	int numPuntos;
 	double kx1_1,kx2_1,kx3_1,kx4_1,kx1_2,kx2_2,kx3_2,kx4_2,promediox1,promediox2;
 	double ky1_1,ky2_1,ky3_1,ky4_1,ky1_2,ky2_2,ky3_2,ky4_2,promedioy1,promedioy2;
+	ofstream archivo_salida("datosProyectil.txt");
 	for(k = 0; k < 8; k++)
 	{
-		ofstream archivo_salida(nombres[k]);
 		req = 1;
 		numPuntos = 0;
 		t = t0;
@@ -85,7 +83,7 @@ int main()
 			posY = posY + h*promedioy1;
 			velY = velY + h*promedioy2;
 			posX = posX + h*promediox1;
-			velY = velY + h*promediox2;
+			velX = velX + h*promediox2;
 			if(posY <= 0.0)
 			{
 				req = 0;
@@ -134,7 +132,7 @@ int main()
 			posY = posY + h*promedioy1;
 			velY = velY + h*promedioy2;
 			posX = posX + h*promediox1;
-			velY = velY + h*promediox2;
+			velX = velX + h*promediox2;
 			archivo_salida << t << " " << posX << " " << posY << " " << velX << " " << velY << endl;
 			if ((i == numPuntos - 2))
 			{
@@ -180,7 +178,6 @@ double func_prime2Y(double t, double y_1, double y_2, double x_2)
 {
 	return -g-c/m*pow((pow(x_2,2) + pow(y_2,2)),1.0/2.0)*y_2;
 }
-
 
 
 
