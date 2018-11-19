@@ -26,14 +26,15 @@
 \begin{center}
 \includegraphics[width=10cm]{Plots45.pdf} 
 \end{center}
-
+En este caso se posee la solución para la ecuación diferencial ordinaria. Es importante resaltar que el proyectil, mientras asciende, mantiene su dirección constante, es decir, su ángulo no varía. Sin embargo, al momento de caer, entra en un estado de caída libre haciendo la velocidad en dirección X menor. 
 \noindent
 \section{Gr\'aficas Ecuación diferencial Parcial}
-Se tienen las condiciones iniciales del sistema. Serán las mismas en los tres casos.
+Se tienen las condiciones iniciales del sistema. Serán las mismas en los tres casos: Una barra de 10 cm de diámetro en la mitad de una placa de 50*50 cm a una temperatura constante de 373[K], mientras que el resto de la placa se encuentra a una temperatura de 283[K]
 \begin{center}
 \includegraphics[width=10cm]{CondicionesIniciales.pdf} 
 \end{center}
 \subsection{Fronteras Fijas}
+En este caso, la temperatura de los extremos de la placa es de 283[K] en todo instante de tiempo. 
 Estados Intermedios:
 \begin{center}
 \includegraphics[width=10cm]{FijoIntermedio1.pdf} 
@@ -43,13 +44,16 @@ Estados Intermedios:
 \end{center}
 Estado Final:
 \begin{center}
-\includegraphics[width=10cm]{FijoFinal.pdf} 
+\includegraphics[width=10cm]{FijoFinal.pdf}
 \end{center}
+Es posible observar un gradiente de temperatura en los puntos de la placa debido a la constancia de los extremos y el centro.\\
 Estado Promedio:
 \begin{center}
 \includegraphics[width=10cm]{PromedioFijo.pdf} 
 \end{center}
+Nótese que el estado promedio tiende hacía el resultado final de la placa, con lo cual podemos inferir que la temperatura en cada punto de ésta aumenta rápidamente y permanece bajo ligeros cambios hasta alcanzar la condición de equilibrio.
 \subsection{Fronteras Libres}
+En esta sección se consideran las fronteras del problema libres.\\
 Estados Intermedios:
 \begin{center}
 \includegraphics[width=10cm]{LibreIntermedio1.pdf} 
@@ -65,7 +69,9 @@ Estado Promedio:
 \begin{center}
 \includegraphics[width=10cm]{LibrePromedio.pdf} 
 \end{center}
+En este caso no se aprecia la misma situación que en el caso de fronteras fijas. El estado promedio no sugiere que la placa alcanza este estado de configuración rápidamente como ocurre en el caso de fornteras fijas. Esto puede deberse a la libertad de los extremos y un ligero aumento de la temperatura en cada instante de tiempo, hasta que finalmente consigue un estado como el presentado en la gráfica del segundo estado intermedio. 
 \subsection{Fronteras Periódicas}
+En esta situación, los extremos se comportan de manera periódica.
 Estados Intermedios:
 \begin{center}
 \includegraphics[width=10cm]{PeriodicaIntermedia1.pdf} 
@@ -81,6 +87,7 @@ Estado Promedio:
 \begin{center}
 \includegraphics[width=10cm]{PeriodicaPromedio.pdf} 
 \end{center}
-
-
+Nuevamente se observa una situación similar al de fronteras libres.
+\section{Observaciones adicionales}
+En el caso de la condición de fronteras libres y abiertas no se observa ninguna diferencia (lo que realmente se esperaba). Debido a la simetría del problema (La barra ubicada en la mitad de la placa a 373[K] y los demás puntos a la misma temperatura 283[K]), la situación de fronteras abiertas y periódicas es la misma. Nótese que para el primer caso se considera el ensamble de puntos justo anterior a la frontera y, para el caso periódico, se considera el que se encuentra en la primera posición que, viendolo como una superposición y por la simetría, es exactamente el mismo ensamble de puntos que en el caso de fronteras libres. 
 \end{document}
